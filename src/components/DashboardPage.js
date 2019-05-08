@@ -25,19 +25,7 @@ export class DashboardPage extends Component {
     }
   }
 
-  onMinChange = (e) => {
-    const min = e.target.value
-    this.setState(() => ({ min }))
-  };
-
-  onMaxChange = (e) => {
-    const max = e.target.value
-    this.setState(() => ({ max }))
-  };
-
-  setRange = () => {
-    console.log('min:', this.state.min, 'max:', this.state.max)
-  }
+  
 
   getState = () => {
     console.log(this.state);
@@ -47,9 +35,6 @@ export class DashboardPage extends Component {
   render() {
     return (
       <div>
-        <input onChange={this.onMinChange} type="text" placeholder='Min temperature' />
-        <input onChange={this.onMaxChange} type="text" placeholder='Max temperature' />
-        <button onClick={this.setRange} >Set range</button>
         <div style={{ height: '75vh', width: '75%' }}>
           <br />
           <GoogleMapReact
