@@ -9,18 +9,6 @@ export class Dashboard extends Component {
   state = {
   };
 
-  componentDidMount() {
-    axios.get(`http://89d2557f.ngrok.io/drinking-data`).then(res => {
-      const firstEntry = moment(res.data[0].timestamp).unix();
-      const lastEntry = moment(res.data[res.data.length-1].timestamp).unix();
-      console.log(firstEntry, lastEntry)
-
-      res.data.forEach(element => {
-       
-      });
-    })
-  }
-
   getState = () => {
     console.log(this.state);
   }
