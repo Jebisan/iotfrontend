@@ -1,21 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { subscribe } from 'mqtt-react';
-import DashboardPage from './DashboardPage';
 
-export class PostMessage extends React.Component {
-
+export class Range extends Component {
   state = {
     min: undefined,
     max: undefined
   };
-  
-  sendMessage(e) {
-      e.preventDefault();
-      //MQTT client is passed on
-      const { mqtt } = this.props;
-      mqtt.publish('cleverCup/location', 'Get location');
-      //console.log(this.props.data)
-  }  
 
   setThreshold(e) {
     e.preventDefault();
@@ -35,25 +25,18 @@ onMaxChange = (e) => {
   this.setState(() => ({ max }))
 };
 
-getState = () => {
-  console.log(this.state);
-}
-   
   render() {
     return (
       <div>
-      
+      <h1>Comfort temperature</h1>
       <input onChange={this.onMinChange} type="text" placeholder='Min temperature' />
       <input onChange={this.onMaxChange} type="text" placeholder='Max temperature' />
-      <button onClick={this.setThreshold.bind(this)}>Set threshold</button>
-    <DashboardPage location={this.props.data} />
-    <br/>
-    <button onClick={this.sendMessage.bind(this)}>Get location</button>
+      <button onClick={this.setThreshold.bind(this)}>Set range</button>
       </div>
-    );
+    )
   }
 }
- 
+
 export default subscribe({
   topic: 'cleverCup/location/response'
-})(PostMessage)
+})(Range)
