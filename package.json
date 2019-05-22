@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Andrew Mead",
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
   "license": "MIT",
   "scripts": {
     "build:dev": "webpack",
